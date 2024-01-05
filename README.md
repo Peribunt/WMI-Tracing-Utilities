@@ -17,7 +17,7 @@ A slightly more descriptive and user friendly documentation for the WMIMU API fu
 //
 // Return Value:
 //
-//          * S_OK If everything initialized successfully
+//          * NT_SUCCESS If everything initialized successfully
 //          * The appropriate status code if an error occured
 //
 HRESULT
@@ -40,7 +40,7 @@ WMIMU_Uninitialize(
 //
 // Return Value:
 //
-//         * S_OK if the function succeeded
+//         * NT_SUCCESS if the function succeeded
 //         * An appropriate status code if the function failed
 //
 HRESULT

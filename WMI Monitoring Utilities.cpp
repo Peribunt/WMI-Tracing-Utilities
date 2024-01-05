@@ -1,6 +1,10 @@
 #include "WMI Notification Utilities.h"
 
+
+
+
 #define SafeRelease( x ) if ( x ) x->Release( )
+
 
 UINT32                     g_IndicateCallbackCount;
 VECTORED_INDICATE_CALLBACK g_IndicateCallbacks[ MAX_INDICATE_CALLBACKS ]{ };
@@ -90,12 +94,15 @@ WMIMU_Initialize(
 	VOID 
 	)
 {
+	BOOL CoinitFailed = FALSE;
+	
 	//
 	// Initialize COM
 	//
-	HRESULT Result = CoInitializeEx( NULL, NULL );
+	HRESULT Result = CoInitializeEx( NULL, COINIT_MULTITHREADED );
 
 	if ( FAILED( Result ) ) {
+		CoinitFailed = TRUE;
 		goto BadResult;
 	}
 
@@ -173,7 +180,9 @@ BadResult:
 	SafeRelease( g_WbemServices );
 	SafeRelease( g_WbemLocator );
 
-	CoUninitialize( );
+	if ( CoinitFailed == TRUE )  {
+		CoUninitialize( );
+	}
 
 	return Result;
 }

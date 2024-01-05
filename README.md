@@ -57,6 +57,18 @@ WMIMU_AddEventMonitor(
 ```
 ```cpp
 //
+// Remove an event monitor and it's callbacks
+//
+VOID
+WMIMU_RemoveEventMonitor(
+  //
+  // [in] (EventSink*) EventSink: The EventSink object that belongs to a previously created monitor
+  //
+  IN EventSink*
+  );
+```
+```cpp
+//
 // Add a callback function associated with a specific EventSink object
 // to allow vectored callbacks to be invoked for a specific event
 //

@@ -329,7 +329,7 @@ WMIMU_AddEventMonitor(
 	EventSink* Sink = new EventSink;
 
 	if ( Sink == NULL || OutEventSink == NULL ) {
-		return STATUS_NO_MEMORY;
+		return E_OUTOFMEMORY;
 	}
 
 	//

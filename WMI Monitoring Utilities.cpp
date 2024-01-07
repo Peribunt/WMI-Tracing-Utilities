@@ -1,7 +1,4 @@
-#include "WMI Notification Utilities.h"
-
-
-
+#include "WMI Monitoring Utilities.h"
 
 #define SafeRelease( x ) if ( x ) x->Release( )
 
